@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
+
+body
+{
+  font: 300 14px/1.4 'Raleway';
+  text-align: center;
+  background-color: #2c3e50;
+}
+
+.imageLogo
+{
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  height: 100px;
+}
+
+.imageStop
+{
+  margin: 10px 0;
+  width: 40%;
+  -webkit-transition: width 0.3s;
+	-moz-transition: width 0.3s;
+	transition: width 0.3s;
+}
+
+.imageStop:hover
+{
+  margin: 10px 0;
+  width: 70%;
+}
+
+div
+{
+  margin: 0 auto;
+  background-color: #34495e;
+  border-radius: 8px;
+  float:left;
+  width:100%;
+  margin:10px;
+  font-size: 13px;
+  height: 200px;
+  width: 16%;
+  color: white;
+  overflow:hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  -webkit-transition: height 0.3s;
+	-moz-transition: height 0.3s;
+	transition: height 0.3s;
+}
+
+.exo3:hover, .exo4et5:hover
+{
+  height: 550px;
+}
+
+.About
+{
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}
+
+h1
+{
+  font-size: 16px;
+  color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 2px 0 2px 0;
+}
+
+.exo1 h1
+{
+  background-color: #e74c3c;
+}
+
+.exo2 h1
+{
+  background-color: #2ecc71;
+}
+
+.exo3 h1
+{
+  background-color: #f39c12;
+}
+
+.exo4et5 h1
+{
+  background-color: #3498db;
+}
+.exo6 h1
+{
+  background-color: #8e44ad;
+}

@@ -1,59 +1,60 @@
-var rental = {
-  "cars": [
-    {
-      "id": "p306",
-      "vehicule": "peugeot 306",
-      "pricePerDay": 20,
-      "pricePerKm": 0.10
-    },
-    {
-      "id": "rr-sport",
-      "pricePerDay": 60,
-      "pricePerKm": 0.30
-    },
-    {
-      "id": "p-boxster",
-      "pricePerDay": 100,
-      "pricePerKm": 0.45
-    }
-  ],
-  "rentals": [
-    {
-      "id": "1-pb-92",
-      "driver": {
-        "firstName": "Paul",
-        "lastName": "Bismuth"
-      },
-      "car_id": "p306",
-      "pickupDate": "2015-09-12",
-      "returnDate": "2015-09-14",
-      "distance": 150
-    },
-    {
-      "id": "2-rs-92",
-      "driver": {
-        "firstName": "Rebecca",
-        "lastName": "Solanas"
-      },
-      "car_id": "rr-sport",
-      "pickupDate": "2015-09-09",
-      "returnDate": "2015-09-13",
-      "distance": 550
-    },
-    {
-      "id": "3-sa-92",
-      "driver": {
-        "firstName": " Sami",
-        "lastName": "Ameziane"
-      },
-      "car_id": "p-boxster",
-      "pickupDate": "2015-09-12",
-      "returnDate": "2015-09-14",
-      "distance": 100
-    }
-  ]
+var rental ={
+"cars": [
+{
+  "id": "p306",
+  "vehicule": "peugeot 306",
+  "pricePerDay": 20,
+  "pricePerKm": 0.10
+}
+],
+"rentals": [
+{
+  "id": "1-pb-92",
+  "driver": {
+    "firstName": "Paul",
+    "lastName": "Bismuth"
+  },
+  "car_id": "p306",
+  "pickupDate": "2015-09-12",
+  "returnDate": "2015-09-12",
+  "distance": 100,
+  "options":{
+    "deductibleReduction": false
+  }
+},
+{
+  "id": "2-rs-92",
+  "driver": {
+    "firstName": "Rebecca",
+    "lastName": "Solanas"
+  },
+  "car_id": "p306",
+  "pickupDate": "2015-09-10",
+  "returnDate": "2015-09-15",
+  "distance": 300,
+  "options":{
+    "deductibleReduction": true
+  }
+},
+{
+  "id": "3-sa-92",
+  "driver": {
+    "firstName": " Sami",
+    "lastName": "Ameziane"
+  },
+  "car_id": "p306",
+  "pickupDate": "2015-08-31",
+  "returnDate": "2015-09-13",
+  "distance": 1000,
+  "options":{
+    "deductibleReduction": true
+  }
+}
+]
 }
 
+document.write("<div class=\"exo4et5\">");
+document.write("<h1>Exo 4 et 5 : accident (?)</h1>");
 
 for (var i = 0; i < rental.cars.length; i++)
 {
@@ -93,19 +94,28 @@ for (var i = 0; i < rental.cars.length; i++)
       }
 
       var rentalPrice = rentalPriceKm + rentalPriceTime;
-      document.write(rentalPrice + " euros<br>");
+
+      //Partie Accident
+      if (rental.rentals[j].options.deductibleReduction)
+      {
+        rentalPrice += locationTime * 4;
+      }
+
+      document.write(rentalPrice + " &#8364;<br>");
 
       var brotherPrice = rentalPrice * 0.7;
       var insurance = rentalPrice * 0.3 / 2;
       var assistance = locationTime;
       var drivyPrice = (rentalPrice * 0.3) - insurance - assistance;
 
-      document.write("Argent du frere : " + brotherPrice.toFixed(2) + " euros<br>");
-      document.write("Commission de : " + (rentalPrice * 0.3).toFixed(2) + " euros<br>");
+      document.write("Argent du frere : " + brotherPrice.toFixed(2) + " &#8364;<br>");
+      document.write("Commission de : " + (rentalPrice * 0.3).toFixed(2) + " &#8364;<br>");
       document.write("Dont<br>");
-      document.write("-insurance : " + insurance.toFixed(2) + " euros<br>");
-      document.write("-assistance : " + assistance.toFixed(2) + " euros<br>");
-      document.write("-drive : " + drivyPrice.toFixed(2) + " euros<br><br><br>");
+      document.write("-insurance : " + insurance.toFixed(2) + " &#8364;<br>");
+      document.write("-assistance : " + assistance.toFixed(2) + " &#8364;<br>");
+      document.write("-drive : " + drivyPrice.toFixed(2) + " &#8364;<br><br><br>");
     }
   }
 }
+
+document.write("</div>");

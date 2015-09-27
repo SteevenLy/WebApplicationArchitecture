@@ -54,6 +54,8 @@ var rental = {
   ]
 }
 
+document.write("<div class=\"exo3\">");
+document.write("<h1>Exo 3: les commissions</h1>");
 
 for (var i = 0; i < rental.cars.length; i++)
 {
@@ -74,11 +76,40 @@ for (var i = 0; i < rental.cars.length; i++)
       var millisecondsPerDay = 1000 * 60 * 60 * 24;
       var millisBetween = Date2.getTime() - Date1.getTime();
       var days = millisBetween / millisecondsPerDay;
+      var locationTime = Math.floor(days) + 1;
 
       //prix par date
-      var rentalPriceTime = (Math.floor(days) + 1) * rental.cars[i].pricePerDay;
+      var rentalPriceTime = (locationTime) * rental.cars[i].pricePerDay;
 
-      document.write((rentalPriceKm + rentalPriceTime) + " euros<br>");
+      if (locationTime > 1)
+      {
+        rentalPriceTime = (1 * rental.cars[i].pricePerDay) + ((locationTime - 1) * (rental.cars[i].pricePerDay) * 0.9);
+      }
+      else if (locationTime > 4)
+      {
+        rentalPriceTime = (4 * rental.cars[i].pricePerDay) + ((locationTime - 4) * (rental.cars[i].pricePerDay) * 0.7);
+      }
+      else if (locationTime > 10)
+      {
+        rentalPriceTime = (10 * rental.cars[i].pricePerDay) + ((locationTime - 10) * (rental.cars[i].pricePerDay) * 0.5);
+      }
+
+      var rentalPrice = rentalPriceKm + rentalPriceTime;
+      document.write(rentalPrice + " &#8364;<br>");
+
+      var brotherPrice = rentalPrice * 0.7;
+      var insurance = rentalPrice * 0.3 / 2;
+      var assistance = locationTime;
+      var drivyPrice = (rentalPrice * 0.3) - insurance - assistance;
+
+      document.write("Argent du frere : " + brotherPrice.toFixed(2) + " &#8364;<br>");
+      document.write("Commission de : " + (rentalPrice * 0.3).toFixed(2) + " &#8364;<br>");
+      document.write("Dont<br>");
+      document.write("-insurance : " + insurance.toFixed(2) + " &#8364;<br>");
+      document.write("-assistance : " + assistance.toFixed(2) + " &#8364;<br>");
+      document.write("-drive : " + drivyPrice.toFixed(2) + " &#8364;<br><br><br>");
     }
   }
 }
+
+document.write("</div>");

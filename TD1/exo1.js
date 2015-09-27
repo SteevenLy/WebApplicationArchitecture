@@ -54,6 +54,9 @@ var rental = {
   ]
 }
 
+document.write("<div class=\"exo1\">");
+document.write("<h1>Exo 1: plein pot</h1>");
+
 
 for (var i = 0; i < rental.cars.length; i++)
 {
@@ -74,25 +77,13 @@ for (var i = 0; i < rental.cars.length; i++)
       var millisecondsPerDay = 1000 * 60 * 60 * 24;
       var millisBetween = Date2.getTime() - Date1.getTime();
       var days = millisBetween / millisecondsPerDay;
-      var locationTime = Math.floor(days) + 1;
 
       //prix par date
-      var rentalPriceTime = (locationTime) * rental.cars[i].pricePerDay;
+      var rentalPriceTime = (Math.floor(days) + 1) * rental.cars[i].pricePerDay;
 
-      if (locationTime > 1)
-      {
-        rentalPriceTime = (1 * rental.cars[i].pricePerDay) + ((locationTime - 1) * (rental.cars[i].pricePerDay) * 0.9);
-      }
-      else if (locationTime > 4)
-      {
-        rentalPriceTime = (4 * rental.cars[i].pricePerDay) + ((locationTime - 4) * (rental.cars[i].pricePerDay) * 0.7);
-      }
-      else if (locationTime > 10)
-      {
-        rentalPriceTime = (10 * rental.cars[i].pricePerDay) + ((locationTime - 10) * (rental.cars[i].pricePerDay) * 0.5);
-      }
-
-      document.write((rentalPriceKm + rentalPriceTime) + " euros<br>");
+      document.write((rentalPriceKm + rentalPriceTime) + " &#8364;<br>");
     }
   }
 }
+
+document.write("</div>");

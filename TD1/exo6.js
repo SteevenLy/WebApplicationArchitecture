@@ -76,6 +76,11 @@ var rental = {
   ]
 }
 
+document.write("<div class=\"exo6\">");
+document.write("<h1>Exo 6: R.I.P. le JSON</h1>");
+
+document.write("<img class=\"imageStop\" src=\"stop_logo.png\"/>");
+
 for (var i = 0; i < rental.cars.length; i++)
 {
   for (var j = 0; j < rental.rentals.length; j++)
@@ -96,3 +101,5 @@ for (var i = 0; i < rental.cars.length; i++)
     }
   }
 }
+
+document.write("</div>");
