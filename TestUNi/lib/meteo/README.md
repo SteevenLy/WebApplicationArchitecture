@@ -1,3 +1,5 @@
 # meteo
 
-> Shell command to get the weather based on location
+Etes vous prêt pour des explications du KOOOOO?
+
+> cd ls ko lilid -dh woulah
